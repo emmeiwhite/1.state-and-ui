@@ -25,14 +25,20 @@ function App() {
           <div className="flex justify-between w-full">
             <div
               className={`w-10 h-10 rounded-full flex justify-center items-center border ${
-                step <= 1 ? 'bg-blue-600 text-white' : ''
+                step >= 1 ? 'bg-blue-600 text-white' : ''
               }`}>
               1
             </div>
-            <div className={`w-10 h-10 rounded-full flex justify-center items-center border`}>
+            <div
+              className={`w-10 h-10 rounded-full flex justify-center items-center border ${
+                step >= 2 ? 'bg-blue-600 text-white' : ''
+              }`}>
               2
             </div>
-            <div className={`w-10 h-10 rounded-full flex justify-center items-center border`}>
+            <div
+              className={`w-10 h-10 rounded-full flex justify-center items-center border ${
+                step >= 3 ? 'bg-blue-600 text-white' : ''
+              }`}>
               3
             </div>
           </div>
