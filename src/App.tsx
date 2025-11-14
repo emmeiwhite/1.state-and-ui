@@ -1,7 +1,30 @@
 import { useState } from 'react'
 
+// Let's create a step component and pass proper data to it as per current state value
+
+type StepsTypes = {
+  step: number
+  id: number
+}
+function Step({ step, id }: StepsTypes) {
+  return (
+    <div
+      className={`w-10 h-10 rounded-full flex justify-center items-center border ${
+        step >= id ? 'bg-blue-600 text-white' : ''
+      }`}>
+      {id}
+    </div>
+  )
+}
+
 function App() {
   const [step, setStep] = useState<number>(1)
+
+  const stepsArr = [
+    { id: 1, text: 'Learn React 👨🏻‍💻' },
+    { id: 2, text: 'Apply for Jobs 🧑‍💻' },
+    { id: 3, text: 'Spend wisely on loved ones and needy ☘️' }
+  ]
 
   // Let's work on interactivity first
 
@@ -23,6 +46,7 @@ function App() {
         <div className="flex flex-col gap-12 items-center">
           {/* Circles */}
           <div className="flex justify-between w-full">
+            {/* We must avoid repetition with the use of props, data etc 
             <div
               className={`w-10 h-10 rounded-full flex justify-center items-center border ${
                 step >= 1 ? 'bg-blue-600 text-white' : ''
@@ -41,6 +65,18 @@ function App() {
               }`}>
               3
             </div>
+            */}
+
+            {/* First I got to simple render the stepsArr */}
+
+            {stepsArr.map(stepObj => {
+              return (
+                <Step
+                  step={step}
+                  id={stepObj.id}
+                />
+              )
+            })}
           </div>
 
           {/* Text Based on State */}
