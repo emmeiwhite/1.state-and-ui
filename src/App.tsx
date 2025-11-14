@@ -82,6 +82,7 @@ function App() {
           {/* Text Based on State */}
 
           <div className="font-medium text-2xl text-center">
+            {/* 
             {step === 1 && (
               <p>
                 Step <span>1</span>: Learn React 👨🏻‍💻
@@ -99,6 +100,12 @@ function App() {
                 Step <span>3</span>: Spend wisely on loved ones and needy ☘️
               </p>
             )}
+            
+             */}
+
+            <p>
+              Step {stepsArr[step - 1].id}: {stepsArr[step - 1].text}
+            </p>
           </div>
 
           <div className="flex justify-between w-full">
