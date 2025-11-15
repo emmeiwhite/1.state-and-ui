@@ -65,7 +65,15 @@ export default function StepChallenge() {
         </div>
 
         {/* Date : Need some hint here in Date function to be used for simple calculations*/}
-        <p>Today is {date.toDateString()}</p>
+        <p>
+          {count === 0
+            ? 'Today '
+            : count > 0
+            ? `${count} days from now is`
+            : `${count} days ago was`}
+
+          <span> {date.toDateString()}</span>
+        </p>
       </div>
     </main>
   )
