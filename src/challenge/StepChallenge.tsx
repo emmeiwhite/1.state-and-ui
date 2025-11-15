@@ -6,6 +6,12 @@ export default function StepChallenge() {
   const [count, setCount] = useState(1)
   const [step, setStep] = useState(1)
 
+  // On Each re-render, we need to update date, we'll go with the derived state in this case
+
+  const date = new Date('june 21 2027')
+
+  date.setDate(date.getDate() + count)
+
   function handleStepPrev() {
     setStep(prev => prev - 1)
   }
@@ -58,8 +64,8 @@ export default function StepChallenge() {
           </div>
         </div>
 
-        {/* Date */}
-        <p>Today is {new Date().toUTCString() + count}</p>
+        {/* Date : Need some hint here in Date function to be used for simple calculations*/}
+        <p>Today is {date.toDateString()}</p>
       </div>
     </main>
   )
