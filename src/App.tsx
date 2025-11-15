@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import StepChallenge from './challenge/StepChallenge'
 
 // Let's create a step component and pass proper data to it as per current state value
 
@@ -60,21 +61,22 @@ function App() {
   }
 
   return (
-    <section className="h-screen w-full flex justify-center items-center bg-blue-200">
-      {/* Open/Close functionality*/}
+    <>
+      <section className="h-screen w-full flex justify-center items-center bg-blue-200">
+        {/* Open/Close functionality*/}
 
-      <button
-        className="absolute top-4 right-4 text-2xl cursor-pointer"
-        onClick={handleToggle}>
-        ❌
-      </button>
+        <button
+          className="absolute top-4 right-4 text-2xl cursor-pointer"
+          onClick={handleToggle}>
+          ❌
+        </button>
 
-      {isOpen ? (
-        <main className="w-[400px] h-[300px]  rounded p-6">
-          <div className="flex flex-col gap-12 items-center">
-            {/* Circles */}
-            <div className="flex justify-between w-full">
-              {/* We must avoid repetition with the use of props, data etc 
+        {isOpen ? (
+          <main className="w-[400px] h-[300px]  rounded p-6">
+            <div className="flex flex-col gap-12 items-center">
+              {/* Circles */}
+              <div className="flex justify-between w-full">
+                {/* We must avoid repetition with the use of props, data etc 
             <div
               className={`w-10 h-10 rounded-full flex justify-center items-center border ${
                 step >= 1 ? 'bg-blue-600 text-white' : ''
@@ -95,23 +97,23 @@ function App() {
             </div>
             */}
 
-              {/* First I got to simple render the stepsArr */}
+                {/* First I got to simple render the stepsArr */}
 
-              {stepsArr.map(stepObj => {
-                return (
-                  <Step
-                    step={step}
-                    id={stepObj.id}
-                    key={stepObj.id}
-                  />
-                )
-              })}
-            </div>
+                {stepsArr.map(stepObj => {
+                  return (
+                    <Step
+                      step={step}
+                      id={stepObj.id}
+                      key={stepObj.id}
+                    />
+                  )
+                })}
+              </div>
 
-            {/* Text Based on State */}
+              {/* Text Based on State */}
 
-            <div className="font-medium text-2xl text-center">
-              {/* 
+              <div className="font-medium text-2xl text-center">
+                {/* 
             {step === 1 && (
               <p>
                 Step <span>1</span>: Learn React 👨🏻‍💻
@@ -132,13 +134,13 @@ function App() {
             
              */}
 
-              <p>
-                Step {stepsArr[step - 1].id}: {stepsArr[step - 1].text}
-              </p>
-            </div>
+                <p>
+                  Step {stepsArr[step - 1].id}: {stepsArr[step - 1].text}
+                </p>
+              </div>
 
-            <div className="flex justify-between w-full">
-              {/*  
+              <div className="flex justify-between w-full">
+                {/*  
             <button
               className="px-4 py-2 rounded-3xl cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition min-w-[100px]"
               onClick={handlePrev}
@@ -155,28 +157,32 @@ function App() {
 
             */}
 
-              <button
-                disabled={step === 1}
-                className={`px-4 py-2 rounded-3xl min-w-[100px]
+                <button
+                  disabled={step === 1}
+                  className={`px-4 py-2 rounded-3xl min-w-[100px]
     ${step === 1 ? 'bg-amber-50 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
-                onClick={handlePrev}>
-                Previous
-              </button>
+                  onClick={handlePrev}>
+                  Previous
+                </button>
 
-              <button
-                disabled={step === 3}
-                className={`px-4 py-2 rounded-3xl min-w-[100px]
+                <button
+                  disabled={step === 3}
+                  className={`px-4 py-2 rounded-3xl min-w-[100px]
     ${step === 3 ? 'bg-amber-50 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
-                onClick={handleNext}>
-                Next
-              </button>
+                  onClick={handleNext}>
+                  Next
+                </button>
+              </div>
             </div>
-          </div>
-        </main>
-      ) : (
-        <></>
-      )}
-    </section>
+          </main>
+        ) : (
+          <></>
+        )}
+      </section>
+
+      {/*  Date Counter Challenge */}
+      <StepChallenge />
+    </>
   )
 }
 
