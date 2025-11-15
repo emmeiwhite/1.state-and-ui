@@ -70,7 +70,7 @@ export default function StepChallenge() {
             ? 'Today '
             : count > 0
             ? `${count} days from now is`
-            : `${count} days ago was`}
+            : `${Math.abs(count)} days ago was`}
 
           <span> {date.toDateString()}</span>
         </p>
