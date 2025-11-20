@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import StepChallenge from './challenge/StepChallenge'
+import Button from './components/Button'
 
 // Let's create a step component and pass proper data to it as per current state value
 
@@ -157,21 +158,35 @@ function App() {
 
             */}
 
-                <button
+                {/* <button
                   disabled={step === 1}
                   className={`px-4 py-2 rounded-3xl min-w-[100px]
     ${step === 1 ? 'bg-amber-50 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
                   onClick={handlePrev}>
                   Previous
-                </button>
+                </button> */}
 
-                <button
+                <Button
+                  handleClick={handlePrev}
+                  step={step}
+                  disabled={step === 1}>
+                  👈 Previous
+                </Button>
+
+                {/* <button
                   disabled={step === 3}
                   className={`px-4 py-2 rounded-3xl min-w-[100px]
     ${step === 3 ? 'bg-amber-50 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
                   onClick={handleNext}>
                   Next
-                </button>
+                </button> */}
+
+                <Button
+                  handleClick={handleNext}
+                  step={step}
+                  disabled={step === 3}>
+                  Next 👉
+                </Button>
               </div>
             </div>
           </main>
